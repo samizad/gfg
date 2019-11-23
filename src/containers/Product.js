@@ -8,7 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Avatar from '@material-ui/core/Avatar';
-
+import { Navigation } from '../components/Navigation'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -27,6 +27,7 @@ const Product = () => {
     <Grid container className={classes.root} spacing={2} >
       <Grid item xs={12}>
         <Paper className={classes.root}>
+          <Navigation />
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -39,18 +40,18 @@ const Product = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-            <TableRow >
-                  <TableCell component="th" scope="row">
-                   AirMax
+              <TableRow >
+                <TableCell component="th" scope="row">
+                  AirMax
                   </TableCell>
-                  <TableCell align="left">Nike</TableCell>
-                  <TableCell align="left">
-                    <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/1.jpg" />
-                  </TableCell>
-                  <TableCell align="left">150</TableCell>
-                  <TableCell align="left">130</TableCell>
-                  <TableCell align="left">20</TableCell>
-                </TableRow>
+                <TableCell align="left">Nike</TableCell>
+                <TableCell align="left">
+                  <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/1.jpg" />
+                </TableCell>
+                <TableCell align="left">150</TableCell>
+                <TableCell align="left">130</TableCell>
+                <TableCell align="left">20</TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </Paper>
