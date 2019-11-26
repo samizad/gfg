@@ -9,19 +9,22 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Avatar from '@material-ui/core/Avatar';
 import { Navigation } from '../components/Navigation'
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
   paper: {
     height: 140,
-    width: 100,
+    width: 400,
   },
   control: {
     padding: theme.spacing(2),
   },
 }));
 const Product = () => {
+  if (localStorage.getItem('token') == null)
+    window.open('/login', '_self')
   const classes = useStyles();
   return (
     <Grid container className={classes.root} spacing={2} >

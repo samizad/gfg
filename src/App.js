@@ -5,11 +5,14 @@ import { Login } from './containers/Login';
 import { NotFound } from './containers/NotFound';
 import './App.css';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import Navigation from './components/Navigation'
+import red from '@material-ui/core/colors/red';
 
 const theme = createMuiTheme({
-  
+  palette: {
+    primary: red,
+  }
 });
+
 const App = () => {
   return (
     <ThemeProvider theme={theme}>

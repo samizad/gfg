@@ -40,32 +40,28 @@ class LoginClass extends React.Component {
     super(props)
     this.state = { username: "", password: "" }
     this.onSubmit = this.onSubmit.bind(this);
-    this.onChangePassword= this.onChangePassword.bind(this);
-    this.onChangeUserName= this.onChangeUserName.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
+    this.onChangeUserName = this.onChangeUserName.bind(this);
 
   }
-
   async onSubmit(event) {
     event.preventDefault()
     console.log(this.state)
-    
-    const response = await axios.post('https://demo6723462.mockable.io/login', {
-      username: this.state.username,
-      password: this.state.password
-    });
-
-    console.log(response.data)
-    // .then(function (response) {
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-
-    localStorage.setItem('token', response.data.token);
-    window.location = "/product"
+    if (this.state.username == 0 || this.state.password == 0) {
+      alert("empty username or password not valid")
+    }
+    else {
+      console.log(localStorage.getItem('token'))
+      const response = await axios.post('https://demo6723462.mockable.io/login', {
+        username: this.state.username,
+        password: this.state.password
+      });
+      console.log(response.data)
+      // local= makeStyles(theme => (target.setItem('token', response.data.token)))
+      localStorage.setItem('token', response.data.token);
+      window.open('/product', '_self')
+    }
   }
-
   onChangeUserName(event) {
     this.setState(
       { username: event.target.value }
@@ -77,6 +73,10 @@ class LoginClass extends React.Component {
     )
   }
   render() {
+    if (localStorage.getItem('token') != null)
+      window.open('/product', '_self')
+
+
     const { classes } = this.props
     return (
       <Container component="main" maxWidth="xs">
